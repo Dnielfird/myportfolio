@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danniel Firdaus | Cybersecurity Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #00ff00;
+            --highlight: #008800;
+            --accent: #ff003c;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid var(--highlight);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+            background: rgba(0, 20, 0, 0.8);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--text-color);
+            text-shadow: 0 0 5px var(--text-color);
+            margin-top: 0;
+        }
+
+        h2 {
+            border-bottom: 1px dashed var(--highlight);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .prompt::before {
+            content: "root@danniel:~# ";
+            color: var(--accent);
+            text-shadow: none;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--text-color);
+            animation: blink 1s step-end infinite;
+            vertical-align: bottom;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            background-color: var(--highlight);
+            color: var(--bg-color);
+            padding: 2px 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="prompt"><span id="typewriter"></span><span class="cursor"></span></h1>
+
+        <div id="main-content">
+            <p>Dedicated cybersecurity professional specializing in threat hunting, security operations, and penetration
+                testing. Proficient in SIEM log analysis, custom tool development, and ensuring compliance with the
+                Malaysian Cyber Security Act 854.</p>
+
+            <h2>[ Experience ]</h2>
+            <h3>Threat Hunting Intern | CyberSecurity Malaysia (MyCERT)</h3>
+            <p><em>August 2025 – February 2026</em></p>
+            <ul>
+                <li>Executed proactive threat hunting, analyzing Living off the Land Binaries (LOLBins) to identify
+                    stealthy adversarial behavior.</li>
+                <li>Mapped and analyzed lateral movement techniques within complex network architectures.</li>
+                <li>Engineered and refined SOC Standard Operating Procedures (SOPs) and incident response playbooks.
+                </li>
+            </ul>
+
+            <h2>[ Custom Tooling & Projects ]</h2>
+            <div class="section">
+                <h3>Analisa: LLM Integration for Security Analysts</h3>
+                <p>Developed a standalone Large Language Model (LLM) designed to assist SOC analysts. The tool
+                    streamlines log analysis and threat intelligence querying, significantly accelerating incident
+                    response times.</p>
+                <span class="tag">LLM</span> <span class="tag">Threat Intel</span> <span class="tag">Automation</span>
+            </div>
+            <br>
+            <div class="section">
+                <h3>EDR Data Extractor</h3>
+                <p>Engineered a robust Python script utilizing threading to autonomously extract Endpoint Detection and
+                    Response (EDR) data from Elasticsearch. The tool formats Kibana log data directly into Excel,
+                    eliminating hours of manual data gathering.</p>
+                <span class="tag">Python</span> <span class="tag">Elasticsearch</span> <span class="tag">Kibana</span>
+                <span class="tag">Threading</span>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <h2>[ Certifications ]</h2>
+                    <ul>
+                        <li>CompTIA CySA+ (Cybersecurity Analyst)</li>
+                        <li>Cisco CCNA</li>
+                    </ul>
+
+                    <h2>[ Core Skills ]</h2>
+                    <ul>
+                        <li>Threat Hunting & Penetration Testing</li>
+                        <li>Python & Django Framework</li>
+                        <li>Elasticsearch / Kibana (SIEM)</li>
+                        <li>Malaysia Cyber Security Act 854</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>[ CTF Deployments ]</h2>
+                    <ul>
+                        <li>Standoff 16</li>
+                        <li>OIC-CERT Cyberdrill</li>
+                        <li>International Battle of Hackers 2025</li>
+                        <li>BingoCTF</li>
+                        <li>MCMC Intervarsity Digital Forensic Challenge CTF</li>
+                        <li>RE:UN10N 2025 CTF</li>
+                        <li>UiTM Capture The Flag (iCTFF8)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+            <p style="text-align: center; border-top: 1px dashed #008800; padding-top: 20px;">
+                <a href="mailto:your.email@example.com">[ Initialize Contact ]</a> | <a
+                    href="https://github.com/Dnielfird">[ GitHub ]</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Terminal Typing Effect Logic
+        const textToType = "cat danniel_firdaus_cv.txt";
+        const typingSpeed = 100; // milliseconds per character
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                document.getElementById("typewriter").innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, typingSpeed);
+            } else {
+                // Once typing is done, fade in the rest of the CV
+                setTimeout(() => {
+                    document.getElementById("main-content").style.opacity = 1;
+                }, 500);
+            }
+        }
+
+        // Start typing effect when page loads
+        window.onload = () => {
+            setTimeout(typeWriter, 800);
+        };
+    </script>
+</body>
+
+</html>
