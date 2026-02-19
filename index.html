@@ -4,332 +4,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danniel Firdaus | Cybersecurity Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'mono': ['Courier New', 'Courier', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#00ff00', // Hacker Green
-                        secondary: '#008800', // Darker Green
-                        bgDark: '#0a0a0a', // Almost black background
-                        bgCard: '#111111', // Slightly lighter for cards
-                        accent: '#ff003c', // Red for highlights
-                    }
-                }
-            }
-        };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Muhammad Danniel Firdaus | Cybersecurity Portfolio</title>
     <style>
-        /* Custom Scrollbar for Terminal aesthetic */
-        ::-webkit-scrollbar {
+        :root {
+            --bg-color: #050505;
+            --text-color: #00ff00;
+            --highlight: #008800;
+            --accent: #ff003c;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid var(--highlight);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+            background: rgba(0, 20, 0, 0.8);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--text-color);
+            text-shadow: 0 0 5px var(--text-color);
+            margin-top: 0;
+        }
+
+        h2 {
+            border-bottom: 1px dashed var(--highlight);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .prompt::before {
+            content: "root@danniel:~# ";
+            color: var(--accent);
+            text-shadow: none;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--text-color);
+            animation: blink 1s step-end infinite;
+            vertical-align: bottom;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            background-color: var(--highlight);
+            color: var(--bg-color);
+            padding: 2px 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 5px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .scroll-box {
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid var(--highlight);
+            padding: 15px;
+            background: #020202;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        /* Custom Scrollbar for the scroll-box */
+        .scroll-box::-webkit-scrollbar {
             width: 8px;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+        .scroll-box::-webkit-scrollbar-track {
+            background: #020202;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #008800;
+        .scroll-box::-webkit-scrollbar-thumb {
+            background: var(--highlight);
         }
 
-        .terminal-border {
-            border: 1px solid #008800;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .hover-terminal:hover {
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
-            border-color: #00ff00;
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
         }
     </style>
 </head>
 
-<body class="bg-bgDark font-mono text-primary antialiased selection:bg-primary selection:text-bgDark">
+<body>
 
-    <nav class="fixed top-0 left-0 right-0 bg-bgDark/90 backdrop-blur-md border-b border-secondary z-50">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center h-16">
-                <div class="font-bold text-xl text-primary tracking-widest">>_ MDF</div>
-                <div class="hidden md:flex space-x-8 text-sm">
-                    <a href="#about" class="text-gray-400 hover:text-primary transition-colors">[ About ]</a>
-                    <a href="#experience" class="text-gray-400 hover:text-primary transition-colors">[ Experience ]</a>
-                    <a href="#projects" class="text-gray-400 hover:text-primary transition-colors">[ Tools ]</a>
-                    <a href="#ctf" class="text-gray-400 hover:text-primary transition-colors">[ CTF & Certs ]</a>
-                    <a href="#education" class="text-gray-400 hover:text-primary transition-colors">[ Background ]</a>
+    <div class="container">
+        <h1 class="prompt"><span id="typewriter"></span><span class="cursor"></span></h1>
+
+        <div id="main-content">
+            <p>Dynamic and solutions-driven Computer Science undergraduate specializing in Network Security and Data
+                Science. Demonstrated success in developing secure, machine-learning-integrated systems and spearheading
+                impactful technical and community initiatives. Passionate about creating data-driven solutions for
+                cybersecurity challenges.</p>
+
+            <div class="grid">
+                <div>
+                    <h2>[ Education ]</h2>
+                    <h3>International Islamic University Malaysia</h3>
+                    <p><em>March 2022 - Present</em></p>
+                    <ul>
+                        <li>Bachelor of Computer Science (Major: Network & Security | Minor: Data Science).</li>
+                        <li>Achievement: Dean’s List for 2 Semesters; Current CGPA: 3.26.</li>
+                        <li>Foundation of Engineering and Computer Science (August 2020 – January 2022).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>[ Technical Skills ]</h2>
+                    <ul>
+                        <li><strong>Cybersecurity:</strong> Cryptography (Adv), Kali Linux, Wireshark, Packet Tracer,
+                            Autopsy, Nmap, Act 854.</li>
+                        <li><strong>Programming:</strong> Figma (Adv), Python, C++, HTML, WordPress.</li>
+                        <li><strong>Data Science:</strong> Pandas, NumPy, Scikit-learn, Matplotlib, RStudio.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </nav>
 
-    <section class="pt-32 pb-16 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-bgDark to-bgDark z-0">
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl">
-                <p class="text-accent font-bold mb-4 animate-pulse">root@danniel:~# whoami</p>
-                <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
-                    Danniel Firdaus
-                </h1>
-                <p class="text-xl text-primary mb-8 max-w-2xl leading-relaxed">
-                    Cybersecurity Professional focusing on <span class="text-white">Threat Hunting, SOC
-                        Operations,</span> and <span class="text-white">Penetration Testing</span>.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="mailto:mdannielf50@gmail.com"
-                        class="bg-primary/10 border border-primary text-primary px-8 py-3 rounded hover:bg-primary hover:text-bgDark transition-all flex items-center justify-center gap-2 font-bold">
-                        <i class="fas fa-terminal"></i> Initialize Contact
-                    </a>
-                    <a href="https://github.com/Dnielfird"
-                        class="border border-gray-600 text-gray-300 px-8 py-3 rounded hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2">
-                        <i class="fab fa-github"></i> GitHub Repository
-                    </a>
+            <h2>[ Professional Experience ]</h2>
+            <h3>Threat Hunting Intern | CyberSecurity Malaysia (MyCERT)</h3>
+            <p><em>August 2025 – February 2026</em></p>
+            <ul>
+                <li>Executed proactive threat hunting, analyzing Living off the Land Binaries (LOLBins) to identify
+                    stealthy adversarial behavior.</li>
+                <li>Mapped and analyzed lateral movement techniques within complex network architectures.</li>
+                <li>Engineered and refined SOC Standard Operating Procedures (SOPs) and incident response playbooks.
+                </li>
+            </ul>
+
+            <h2>[ Development Projects ]</h2>
+
+            <h3>Analisa: LLM Integration for Security Analysts</h3>
+            <p>Developed a standalone Large Language Model (LLM) designed to assist SOC analysts. Streamlines log
+                analysis and threat intelligence querying to accelerate incident response.</p>
+
+            <h3>EDR Data Extractor</h3>
+            <p>Engineered a Python script utilizing threading to autonomously extract EDR data from Elasticsearch.
+                Formats Kibana log data directly into Excel.</p>
+
+            <h3>Finger Vein Recognition (FYP)</h3>
+            <p>Developed a biometric authentication system utilizing finger vein patterns. Leveraged Raspberry Pi 5
+                hardware and machine learning for image enhancement and pattern recognition.</p>
+
+            <h3>Artista & Junk Out Applications</h3>
+            <p>Created "Artista," an art gallery app integrating blockchain for secure virtual bidding (Semi-finalist
+                among 30 universities). Designed "Junk Out," an e-waste management platform optimizing UI/UX and
+                database architecture for cost-effective disposal solutions.</p>
+
+            <h2>[ Leadership & Outreach ]</h2>
+            <ul>
+                <li><strong>President, ICTSS (Dec 2023 – Dec 2024):</strong> Initiated hands-on technical programs and
+                    an exchange program to UMS, Sabah. Previously served as Head of Multimedia and Communication.</li>
+                <li><strong>STORY 2025 Regional Workshop (June 2025):</strong> Represented ASEAN youth in Kuala Lumpur
+                    addressing misinformation, cyberbullying, and violent extremism online.</li>
+                <li><strong>COCOTECH & SCI-NATURE (2024):</strong> Delivered modules on cryptography and OSINT to
+                    secondary students in Sabah. Managed STEM modules focusing on digital literacy for primary and
+                    Indigenous students in Selangor.</li>
+                <li><strong>Humanizing ICT Exchange Programme (2023):</strong> Collaborated with Universitas Islam
+                    Negeri Sultan Syarif Kasim in Indonesia to develop a community reporting website.</li>
+            </ul>
+
+            <div class="grid">
+                <div>
+                    <h2>[ Awards & Honors ]</h2>
+                    <ul>
+                        <li>1st Place Winner: MOHE-MDEC Global Outsourcing Talent (GOT) Bootcamp 2024.</li>
+                        <li>1st Place: Best Innovation Project Award in INNOVATEX (FYP 2 Showcase).</li>
+                        <li>Silver Award: FYP 1 Showcase for Most Promising Project.</li>
+                        <li>Silver Award: FYP 2 Awards for INNOVATEX.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>[ CTF Deployments ]</h2>
+                    <ul>
+                        <li>Standoff 16 & OIC-CERT Cyberdrill</li>
+                        <li>International Battle of Hackers 2025</li>
+                        <li>BingoCTF & RE:UN10N 2025 CTF</li>
+                        <li>MCMC Intervarsity Digital Forensic Challenge</li>
+                        <li>UiTM Capture The Flag (iCTFF8)</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="experience" class="py-20 border-t border-secondary/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-white"><span class="text-primary">></span> Execution History</h2>
-
-            <div class="bg-bgCard p-8 rounded-lg terminal-border mb-8">
-                <div class="flex flex-col md:flex-row justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Threat Hunting Intern</h3>
-                        <p class="text-lg text-secondary">CyberSecurity Malaysia (MyCERT)</p>
-                    </div>
-                    <span class="text-accent font-bold mt-2 md:mt-0">August 2025 – February 2026</span>
-                </div>
-                <ul class="space-y-3 text-gray-300 list-disc list-inside marker:text-primary">
-                    <li>Executed proactive threat hunting operations, focusing on the identification and analysis of
-                        <span class="text-primary font-bold">LOLBins</span> to detect stealthy adversary activities.
-                    </li>
-                    <li>Analyzed <span class="text-primary font-bold">lateral movement techniques</span> within complex
-                        network architectures using Elasticsearch/Kibana XDR.</li>
-                    <li>Engineered and refined SOC Standard Operating Procedures (SOPs) and incident response playbooks.
-                    </li>
-                    <li>Developed internal automation tools to assist security analysts, bridging the gap between raw
-                        data and actionable intelligence.</li>
+            <h2>[ Event & Committee Archive ]</h2>
+            <div class="scroll-box">
+                <p><strong>2024 & 2025 Deployments:</strong></p>
+                <ul>
+                    <li>ICTSS 2024/2025 Election Commission - Head of Publication and Promotion</li>
+                    <li>COCOTECH: Connecting Communities with Technologies - Secretary</li>
+                    <li>KICT Festival 2024 - Chief Executive Officer</li>
+                    <li>Insan Sejahtera Module 1, 2024/2025 - Programme Coordinator</li>
+                    <li>Sci-Nature - Programme Manager</li>
+                    <li>Career Bootcamp Series 1/2024 with MDEC - Participant</li>
+                    <li>I-HAX 2024 (Innovation Hackathon) - Treasurer (National Level)</li>
+                    <li>Pesta Demokrasi - Special Task</li>
+                    <li>Insan Sejahtera Module 2, 2023/2024 - Programme Manager</li>
+                </ul>
+                <p><strong>2023 Deployments:</strong></p>
+                <ul>
+                    <li>KICT Annual Grand Dinner 2023 - Programme Manager</li>
+                    <li>ICTSS Annual General Meeting 2023 - Head of Special Task</li>
+                    <li>Humanizing ICT Exchange Programme - Publication and Promotion</li>
+                    <li>Dean's List Award Semester 2, 2022/2023 - Publication and Promotion</li>
+                    <li>KICT Cultural Night & PIXELRUN - Publication and Promotion</li>
+                    <li>KICT Festival 2023 - Chief of Marketing Corporate Officer</li>
+                    <li>Insan Sejahtera Module 1, 2023/2024 - Head of Publication and Promotion</li>
+                    <li>I-HAX 2023: Rumble of Innovators - Head of Multimedia and Design</li>
+                    <li>Hype Hike @ Bukit Melati - Publication and Promotion</li>
+                    <li>Dean's List Award & KICT Sports Festival - Publication and Promotion</li>
+                    <li>Insan Sejahtera Module 2, 2022/2023 - Head of Multimedia and Communication</li>
+                </ul>
+                <p><strong>2022 Deployments:</strong></p>
+                <ul>
+                    <li>KICT Annual Grand Dinner - Publication and Promotion</li>
+                    <li>KICT Festival 2022 - Publication and Promotion</li>
+                    <li>Keep Up with GitHub Workshop - Special Task</li>
+                    <li>Dean's List Ceremony - Publication and Promotion</li>
                 </ul>
             </div>
+
+            <br>
+            <p style="text-align: center; border-top: 1px dashed #008800; padding-top: 20px;">
+                <a href="mailto:mdannielf50@gmail.com">[ Initialize Contact ]</a> | <a
+                    href="https://github.com/Dnielfird">[ GitHub ]</a>
+            </p>
         </div>
-    </section>
+    </div>
 
-    <section id="projects" class="py-20 border-t border-secondary/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-white"><span class="text-primary">></span> Deployed Architecture
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-bgCard p-8 rounded-lg terminal-border hover-terminal transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-white">Analisa (LLM Integration)</h3>
-                        <i class="fas fa-microchip text-primary text-xl"></i>
-                    </div>
-                    <p class="text-gray-400 mb-6 line-clamp-3">Developed a standalone Large Language Model (LLM)
-                        designed specifically to assist SOC analysts. The tool streamlines log analysis and threat
-                        intelligence querying, significantly accelerating incident response times.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">LLM</span>
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Python</span>
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Django</span>
-                    </div>
-                </div>
-
-                <div class="bg-bgCard p-8 rounded-lg terminal-border hover-terminal transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-white">EDR Log Extractor</h3>
-                        <i class="fas fa-database text-primary text-xl"></i>
-                    </div>
-                    <p class="text-gray-400 mb-6 line-clamp-3">Engineered a custom Python script leveraging threading to
-                        efficiently extract and format Endpoint Detection and Response (EDR) data directly from
-                        Elasticsearch Kibana into actionable Excel reports.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Python
-                            Threading</span>
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Elasticsearch</span>
-                    </div>
-                </div>
-
-                <div class="bg-bgCard p-8 rounded-lg terminal-border hover-terminal transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-white">Finger Vein Recognition (FYP)</h3>
-                        <i class="fas fa-fingerprint text-primary text-xl"></i>
-                    </div>
-                    <p class="text-gray-400 mb-6">Developed a biometric authentication system utilizing finger vein
-                        patterns for enhanced security. Leveraged Raspberry Pi hardware alongside machine learning for
-                        pattern recognition.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Machine
-                            Learning</span>
-                        <span
-                            class="bg-secondary/20 text-primary px-3 py-1 rounded text-sm border border-secondary">Hardware
-                            Integration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ctf" class="py-20 border-t border-secondary/30 bg-bgCard">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-                <div>
-                    <h2 class="text-3xl font-bold mb-8 text-white"><span class="text-primary">></span> Capabilities</h2>
-                    <div class="space-y-6">
-                        <div class="terminal-border p-6 rounded bg-bgDark">
-                            <h4 class="text-lg text-white font-bold mb-4 border-b border-secondary pb-2">Active
-                                Certifications</h4>
-                            <ul class="text-gray-400 space-y-2 list-none">
-                                <li><span class="text-primary">[+]</span> CompTIA CySA+ (Cybersecurity Analyst)</li>
-                                <li><span class="text-primary">[+]</span> Cisco CCNA</li>
-                            </ul>
-                        </div>
-
-                        <div class="terminal-border p-6 rounded bg-bgDark">
-                            <h4 class="text-lg text-white font-bold mb-4 border-b border-secondary pb-2">Technical
-                                Matrix</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-gray-300 mb-1">Cyber Operations</p>
-                                    <p class="text-sm text-gray-500">Threat Hunting, Pentesting, SIEM
-                                        (Elasticsearch/Kibana), Wireshark, Nmap, Autopsy.</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-300 mb-1">Development</p>
-                                    <p class="text-sm text-gray-500">Python, Django Framework, Threading, Git, C++.</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-300 mb-1">Governance</p>
-                                    <p class="text-sm text-gray-500">Malaysia Cyber Security Act 854.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="text-3xl font-bold mb-8 text-white"><span class="text-primary">></span> CTF Deployments
-                    </h2>
-                    <div class="terminal-border p-6 rounded bg-bgDark h-full">
-                        <p class="text-gray-400 mb-6 text-sm">Active competitor in national and international
-                            challenges, demonstrating practical skills in digital forensics, exploitation, and defensive
-                            strategies.</p>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> Standoff 16
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> OIC-CERT Cyberdrill
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> Battle of Hackers 2025
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> BingoCTF
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> RE:UN10N 2025 CTF
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300">
-                                <i class="fas fa-flag text-secondary"></i> UiTM iCTFF8
-                            </div>
-                            <div class="flex items-center gap-2 text-gray-300 col-span-1 sm:col-span-2">
-                                <i class="fas fa-flag text-secondary"></i> MCMC Intervarsity Digital Forensic Challenge
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="py-20 border-t border-secondary/30">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl font-bold mb-12 text-white text-center"><span class="text-primary">></span> Background
-            </h2>
-
-            <div class="terminal-border p-8 rounded bg-bgCard mb-8">
-                <div class="flex flex-col md:flex-row justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Bachelor of Computer Science</h3>
-                        <p class="text-lg text-secondary">International Islamic University Malaysia</p>
-                    </div>
-                    <span class="text-gray-500 font-bold mt-2 md:mt-0">March 2022 – Present</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div>
-                        <p class="text-gray-400"><span class="text-white font-bold">Major:</span> Network and Security
-                        </p>
-                        <p class="text-gray-400"><span class="text-white font-bold">Minor:</span> Data Science</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-400"><span class="text-white font-bold">CGPA:</span> 3.26 (Dean's List x2)
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-4 border-b border-secondary pb-2">Key Leadership</h4>
-                    <ul class="text-gray-400 space-y-2 text-sm">
-                        <li><span class="text-primary">></span> President, ICTSS (2023-2024)</li>
-                        <li><span class="text-primary">></span> Rep, STORY 2025 Regional Workshop</li>
-                        <li><span class="text-primary">></span> Chief Exec Officer, KICT Fest 2024</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-4 border-b border-secondary pb-2">Awards</h4>
-                    <ul class="text-gray-400 space-y-2 text-sm">
-                        <li><span class="text-accent">★</span> 1st Place - MOHE-MDEC GOT Bootcamp</li>
-                        <li><span class="text-accent">★</span> 1st Place - INNOVATEX Tech Expo</li>
-                        <li><span class="text-accent">★</span> Silver Award - FYP 1 & 2 Showcases</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-8 border-t border-secondary border-dashed">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-500 mb-4 text-sm">Connection terminated. EOF.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="mailto:mdannielf50@gmail.com" class="text-gray-500 hover:text-primary transition-colors">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-                <a href="https://github.com/Dnielfird" class="text-gray-500 hover:text-primary transition-colors">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/muhammad-danniel-firdaus-abdul-haizul-faisal/"
-                    class="text-gray-500 hover:text-primary transition-colors">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
