@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Danniel Firdaus | Cybersecurity Portfolio</title>
+    <title>Muhammad Danniel Firdaus Bin Abdul Haizul Faisal | Portfolio</title>
 
     <link rel="icon" type="image/svg+xml"
         href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23050505"/><text x="50" y="70" font-family="monospace" font-size="60" fill="%2300ff00" text-anchor="middle" font-weight="bold">&gt;_</text></svg>'>
@@ -40,17 +40,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            transition: background-color 0.4s ease, color 0.4s ease;
-            cursor: default;
+        /* CSS Variables for Mouse Tracking */
+        :root {
+            --mouse-x: 50%;
+            --mouse-y: 50%;
         }
 
-        /* Custom Interactive Cursor (Hidden on mobile) */
-        #custom-cursor {
-            pointer-events: none;
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
+        body {
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* 3D Spotlight Background Effect */
+        #spotlight {
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(37, 99, 235, 0.08), transparent 40%);
+        }
+
+        .dark #spotlight {
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 255, 0, 0.07), transparent 40%);
         }
 
         /* Dark Mode Scrollbar & Terminal Effects */
@@ -109,9 +115,7 @@
 <body
     class="bg-lightBg font-sans text-lightText antialiased selection:bg-lightPrimary selection:text-white dark:bg-bgDark dark:font-mono dark:text-primary dark:selection:bg-primary dark:selection:text-bgDark relative transition-colors duration-300">
 
-    <div id="custom-cursor"
-        class="hidden lg:block fixed w-6 h-6 border-2 border-lightPrimary dark:border-primary rounded-full mix-blend-difference">
-    </div>
+    <div id="spotlight" class="fixed inset-0 pointer-events-none z-0 transition-colors duration-300"></div>
 
     <div class="scanline hidden dark:block"></div>
 
@@ -121,7 +125,8 @@
             <div class="flex justify-between items-center h-16">
                 <div
                     class="font-bold text-xl text-lightPrimary dark:text-primary tracking-widest hover:scale-105 transition-transform duration-300 cursor-pointer">
-                    <span class="hidden dark:inline">>_ </span>MDF</div>
+                    <span class="hidden dark:inline">>_ </span>MDF
+                </div>
                 <div class="hidden md:flex space-x-8 text-sm items-center">
                     <a href="#experience"
                         class="text-gray-600 hover:text-lightPrimary dark:text-gray-400 dark:hover:text-primary transition-colors hover:-translate-y-0.5 transform"><span
@@ -164,7 +169,8 @@
                     class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white tracking-tight transition-colors">
                     Muhammad Danniel Firdaus <br class="hidden lg:block">Bin Abdul Haizul Faisal
                 </h1>
-                <p class="text-lg text-gray-600 dark:text-primary mb-8 leading-relaxed transition-colors max-w-4xl">
+                <p
+                    class="text-lg text-gray-600 dark:text-primary mb-8 leading-relaxed transition-colors max-w-4xl relative z-20">
                     Entry-level cybersecurity professional graduating with a Bachelor of Computer Science (Network
                     Security) and a minor in Data Science. Trained in SOC-aligned operations, including <span
                         class="font-semibold text-lightPrimary dark:text-white dark:font-normal">threat detection, log
@@ -172,7 +178,7 @@
                     systems and applying machine learning for security use cases. Seeking full-time roles where
                     analytical thinking, scripting, and defensive security skills can deliver real-world impact.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 relative z-20">
                     <a href="#"
                         class="secure-contact bg-lightPrimary text-white dark:bg-primary/10 dark:border dark:border-primary dark:text-primary px-8 py-3 rounded-lg dark:rounded hover:bg-blue-700 dark:hover:bg-primary dark:hover:text-bgDark transition-all duration-300 flex items-center justify-center gap-2 font-bold hover:shadow-lg hover:-translate-y-1"
                         data-b64="bWRhbm5pZWxmNTBAZ21haWwuY29t">
@@ -194,7 +200,7 @@
     </section>
 
     <section id="experience"
-        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300">
+        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300 relative z-10">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white transition-colors">
                 <span class="dark:hidden">Work Experience</span>
@@ -202,7 +208,7 @@
             </h2>
 
             <div
-                class="group bg-lightCard border border-gray-200 dark:bg-bgCard p-8 rounded-xl dark:rounded-lg dark:terminal-border mb-8 dark:hover-terminal transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                class="group bg-lightCard border border-gray-200 dark:bg-bgCard p-8 rounded-xl dark:rounded-lg dark:terminal-border mb-8 dark:hover-terminal transition-all duration-300 hover:shadow-xl hover:-translate-y-2 relative z-20">
                 <div
                     class="flex flex-col md:flex-row justify-between mb-6 border-b border-gray-100 dark:border-secondary/50 pb-4 transition-colors">
                     <div>
@@ -240,8 +246,8 @@
     </section>
 
     <section id="projects"
-        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300 bg-gray-50 dark:bg-transparent">
-        <div class="container mx-auto px-6">
+        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300 bg-gray-50/50 dark:bg-transparent relative z-10">
+        <div class="container mx-auto px-6 relative z-20">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white transition-colors">
                 <span class="dark:hidden">Engineering & Development Projects</span>
                 <span class="hidden dark:inline"><span class="text-primary">>
@@ -351,7 +357,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div
-                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary cursor-default">
+                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary">
                     <h4
                         class="font-bold text-slate-800 dark:text-white group-hover:text-lightPrimary dark:group-hover:text-primary transition-colors">
                         HalalChic Hub</h4>
@@ -359,7 +365,7 @@
                         e-commerce app with live 3D virtual try-ons.</p>
                 </div>
                 <div
-                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary cursor-default">
+                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary">
                     <h4
                         class="font-bold text-slate-800 dark:text-white group-hover:text-lightPrimary dark:group-hover:text-primary transition-colors">
                         SPORTY</h4>
@@ -367,7 +373,7 @@
                         design to connect users with shared sports interests.</p>
                 </div>
                 <div
-                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary cursor-default">
+                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary">
                     <h4
                         class="font-bold text-slate-800 dark:text-white group-hover:text-lightPrimary dark:group-hover:text-primary transition-colors">
                         IIUM Reporting System</h4>
@@ -375,7 +381,7 @@
                         design to streamline issue reporting and tracking.</p>
                 </div>
                 <div
-                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary cursor-default">
+                    class="group p-5 bg-white dark:bg-bgDark border border-gray-200 dark:border-secondary/50 rounded-xl hover:shadow-md transition-all duration-300 hover:border-lightPrimary dark:hover:border-primary">
                     <h4
                         class="font-bold text-slate-800 dark:text-white group-hover:text-lightPrimary dark:group-hover:text-primary transition-colors">
                         SiswaServe</h4>
@@ -387,8 +393,8 @@
     </section>
 
     <section id="outreach"
-        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300">
-        <div class="container mx-auto px-6">
+        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300 relative z-10">
+        <div class="container mx-auto px-6 relative z-20">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white transition-colors">
                 <span class="dark:hidden">Community Outreach & Digital Literacy</span>
                 <span class="hidden dark:inline"><span class="text-primary">>
@@ -496,8 +502,8 @@
     </section>
 
     <section id="credentials"
-        class="py-20 border-b border-gray-200 dark:border-secondary/30 bg-gray-50 dark:bg-bgCard transition-colors duration-300">
-        <div class="container mx-auto px-6">
+        class="py-20 border-b border-gray-200 dark:border-secondary/30 bg-gray-50/50 dark:bg-transparent transition-colors duration-300 relative z-10">
+        <div class="container mx-auto px-6 relative z-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
                 <div class="transform transition-all duration-500 hover:scale-[1.01]">
@@ -509,43 +515,43 @@
 
                     <div class="space-y-6">
                         <div
-                            class="bg-white border border-gray-200 dark:bg-bgDark p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none transition-colors">
+                            class="bg-white border border-gray-200 dark:bg-bgCard p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none transition-colors">
                             <h4
                                 class="text-lg text-slate-900 dark:text-white font-bold mb-6 border-b border-gray-100 dark:border-secondary/50 pb-3 transition-colors">
                                 Professional Certifications</h4>
                             <ul class="text-gray-600 dark:text-gray-300 space-y-4 list-none text-sm transition-colors">
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-shield-alt text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">CompTIA:</span> Cyber
                                         Security Analyst (CySA+)</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-search text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">Antisyphon
                                             Training:</span> OSINT Like a Hacker</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-network-wired text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">CISCO:</span> Enterprise
                                         Networking, Security & Automation</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-code text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">DATACAMP:</span> Python
                                         (Intro & Intermediate)</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-wifi text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">0Day Academy:</span>
                                         Wi-Fi Penetration Testing</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <i class="fas fa-lock text-lightPrimary dark:text-primary mt-1"></i>
                                     <div><span class="font-bold text-slate-800 dark:text-white">Internet Society:</span>
                                         Encryption</div>
@@ -554,31 +560,31 @@
                         </div>
 
                         <div
-                            class="bg-white border border-gray-200 dark:bg-bgDark p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none transition-colors">
+                            class="bg-white border border-gray-200 dark:bg-bgCard p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none transition-colors">
                             <h4
                                 class="text-lg text-slate-900 dark:text-white font-bold mb-6 border-b border-gray-100 dark:border-secondary/50 pb-3 transition-colors">
                                 Academic & Project Honours</h4>
                             <ul class="text-gray-600 dark:text-gray-300 space-y-4 list-none text-sm transition-colors">
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <span
                                         class="text-yellow-500 font-bold dark:text-accent dark:font-normal mt-0.5">★</span>
                                     <div>1st Place: MOHE-MDEC GOT Bootcamp 2024</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <span
                                         class="text-yellow-500 font-bold dark:text-accent dark:font-normal mt-0.5">★</span>
                                     <div>1st Place: Best Innovation Project (INNOVATEX)</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <span
                                         class="text-gray-400 font-bold dark:text-primary dark:font-normal mt-0.5">★</span>
                                     <div>Silver Award: FYP 1 & 2 Showcases</div>
                                 </li>
                                 <li
-                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors cursor-default">
+                                    class="flex items-start gap-3 hover:text-lightPrimary dark:hover:text-primary transition-colors">
                                     <span
                                         class="text-lightPrimary font-bold dark:text-primary dark:font-normal mt-0.5">★</span>
                                     <div>Dean's List (x2 Semesters)</div>
@@ -596,14 +602,14 @@
                     </h2>
 
                     <div
-                        class="bg-white border border-gray-200 dark:bg-bgDark p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none h-full transition-colors">
+                        class="bg-white border border-gray-200 dark:bg-bgCard p-8 rounded-xl dark:rounded-lg dark:terminal-border shadow-md dark:shadow-none h-full transition-colors">
                         <p class="text-gray-600 dark:text-gray-400 mb-8 text-sm transition-colors leading-relaxed">
                             Active competitor in simulations focusing on pentesting, incident response, digital
                             forensics, web security, and binary exploitation.</p>
 
                         <ul class="space-y-5 text-sm transition-colors">
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -612,7 +618,7 @@
                                     of Cyber 2025.</div>
                             </li>
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -621,7 +627,7 @@
                                 </div>
                             </li>
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -630,7 +636,7 @@
                                     simulation.</div>
                             </li>
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -639,7 +645,7 @@
                                     and evidence recovery.</div>
                             </li>
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-4 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -648,7 +654,7 @@
                                     cryptography.</div>
                             </li>
                             <li
-                                class="group flex gap-3 text-gray-700 dark:text-gray-300 pb-2 transition-all hover:pl-2 cursor-default">
+                                class="group flex gap-3 text-gray-700 dark:text-gray-300 pb-2 transition-all hover:pl-2">
                                 <i
                                     class="fas fa-flag text-lightPrimary dark:text-secondary mt-1 group-hover:text-accent transition-colors"></i>
                                 <div><strong
@@ -665,8 +671,8 @@
     </section>
 
     <section id="education"
-        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300">
-        <div class="container mx-auto px-6 max-w-4xl">
+        class="py-20 border-b border-gray-200 dark:border-secondary/30 transition-colors duration-300 relative z-10">
+        <div class="container mx-auto px-6 max-w-4xl relative z-20">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white text-center transition-colors">
                 <span class="dark:hidden">Academic Foundations</span>
                 <span class="hidden dark:inline"><span class="text-primary">> </span>Academic_Foundations</span>
@@ -711,7 +717,7 @@
             </div>
 
             <div
-                class="bg-gray-50 border border-gray-200 dark:bg-bgDark p-6 rounded-xl dark:rounded-lg dark:terminal-border shadow-sm dark:shadow-none transition-colors hover:shadow-md hover:-translate-y-1 transform duration-300">
+                class="bg-white border border-gray-200 dark:bg-bgDark p-6 rounded-xl dark:rounded-lg dark:terminal-border shadow-sm dark:shadow-none transition-colors hover:shadow-md hover:-translate-y-1 transform duration-300">
                 <div class="flex flex-col md:flex-row justify-between md:items-center">
                     <div>
                         <h4 class="text-lg text-slate-900 dark:text-white font-bold transition-colors">Foundation of
@@ -720,7 +726,7 @@
                             Studies, IIUM (CGPA: 2.90)</p>
                     </div>
                     <span
-                        class="text-xs font-semibold text-gray-500 bg-gray-200 dark:bg-transparent px-2 py-1 rounded dark:text-primary mt-3 md:mt-0"><span
+                        class="text-xs font-semibold text-gray-500 bg-gray-100 dark:bg-transparent px-2 py-1 rounded dark:text-primary mt-3 md:mt-0"><span
                             class="hidden dark:inline">[ </span>Aug 2020 – Jan 2022<span class="hidden dark:inline">
                             ]</span></span>
                 </div>
@@ -729,8 +735,8 @@
     </section>
 
     <footer
-        class="bg-gray-100 border-t border-gray-200 dark:border-none dark:bg-black py-12 transition-colors duration-300 relative overflow-hidden">
-        <div class="container mx-auto px-6 text-center relative z-10">
+        class="bg-gray-100 border-t border-gray-200 dark:border-none dark:bg-black py-12 transition-colors duration-300 relative overflow-hidden z-10">
+        <div class="container mx-auto px-6 text-center relative z-20">
             <p class="text-gray-500 dark:text-primary mb-6 text-sm transition-colors font-mono"><span
                     class="hidden dark:inline">> </span>Connection terminated. EOF.</p>
             <div class="flex justify-center space-x-8 mb-6">
@@ -739,12 +745,13 @@
                     data-b64="bWRhbm5pZWxmNTBAZ21haWwuY29t" aria-label="Email Me">
                     <i class="fas fa-envelope text-2xl"></i>
                 </a>
-                <a href="https://github.com/Dnielfird"
+                <a href="https://github.com/Dnielfird" target="_blank" rel="noopener noreferrer"
                     class="text-gray-400 hover:text-lightPrimary dark:text-gray-500 dark:hover:text-primary transition-all duration-300 hover:scale-125 transform"
                     aria-label="GitHub">
                     <i class="fab fa-github text-2xl"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/muhammad-danniel-firdaus-abdul-haizul-faisal/"
+                <a href="https://www.linkedin.com/in/muhammad-danniel-firdaus-abdul-haizul-faisal/" target="_blank"
+                    rel="noopener noreferrer"
                     class="text-gray-400 hover:text-lightPrimary dark:text-gray-500 dark:hover:text-primary transition-all duration-300 hover:scale-125 transform"
                     aria-label="LinkedIn">
                     <i class="fab fa-linkedin text-2xl"></i>

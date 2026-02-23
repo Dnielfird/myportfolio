@@ -33,32 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- 3. Custom Interactive Cursor (Beautification) ---
-    const cursor = document.getElementById('custom-cursor');
-
-    // Move cursor tracking
+    // --- 3. 3D Spotlight Background Tracker ---
+    // This updates the CSS variables --mouse-x and --mouse-y globally
+    // so the CSS radial-gradient can seamlessly follow the cursor.
     document.addEventListener('mousemove', (e) => {
-        if (cursor) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        }
-    });
+        const x = e.clientX;
+        const y = e.clientY;
 
-    // Expand cursor when hovering over clickable items
-    const interactiveElements = document.querySelectorAll('a, button, .hover-terminal');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            if (cursor) {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursor.classList.add('bg-lightPrimary', 'dark:bg-primary', 'opacity-20');
-            }
-        });
-        el.addEventListener('mouseleave', () => {
-            if (cursor) {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.classList.remove('bg-lightPrimary', 'dark:bg-primary', 'opacity-20');
-            }
-        });
+        document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}px`);
     });
 
     // --- 4. OSINT Protection: Base64 Email Decoder ---
@@ -67,10 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     secureContacts.forEach(btn => {
         btn.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default link behavior
+            e.preventDefault();
             const encodedEmail = this.getAttribute('data-b64');
             if (encodedEmail) {
-                // Decode the base64 string (bWRhbm5pZWxmNTBAZ21haWwuY29t -> mdannielf50@gmail.com)
+                // Decodes bWRhbm5pZWxmNTBAZ21haWwuY29t back to mdannielf50@gmail.com
                 const decodedEmail = atob(encodedEmail);
                 window.location.href = `mailto:${decodedEmail}`;
             }
