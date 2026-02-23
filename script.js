@@ -17,7 +17,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- 2. Smooth Scrolling ---
+    // --- 2. Mobile Menu Toggle Logic ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const menuIcon = mobileMenuBtn.querySelector('i');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+
+        // Change hamburger icon to X when opened
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        } else {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        }
+    });
+
+    // Close mobile menu automatically when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        });
+    });
+
+    // --- 3. Smooth Scrolling ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -33,19 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- 3. 3D Spotlight Background Tracker ---
-    // This updates the CSS variables --mouse-x and --mouse-y globally
-    // so the CSS radial-gradient can seamlessly follow the cursor.
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX;
-        const y = e.clientY;
+    // --- 4. 3D Spotlight Background Tracker ---
+    // Safely checks if user is using a touch device (prevents stuck spotlight on mobile)
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-        document.documentElement.style.setProperty('--mouse-x', `${x}px`);
-        document.documentElement.style.setProperty('--mouse-y', `${y}px`);
-    });
+    if (!isTouchDevice) {
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
 
-    // --- 4. OSINT Protection: Base64 Email Decoder ---
-    // Protects email from automated scraping bots by decoding only on real clicks
+            document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+        });
+    }
+
+    // --- 5. OSINT Protection: Base64 Email Decoder ---
     const secureContacts = document.querySelectorAll('.secure-contact');
 
     secureContacts.forEach(btn => {
@@ -53,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const encodedEmail = this.getAttribute('data-b64');
             if (encodedEmail) {
-                // Decodes bWRhbm5pZWxmNTBAZ21haWwuY29t back to mdannielf50@gmail.com
                 const decodedEmail = atob(encodedEmail);
                 window.location.href = `mailto:${decodedEmail}`;
             }
