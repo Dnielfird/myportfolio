@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', // Enables the light/dark toggle
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -16,17 +16,17 @@
                         'mono': ['Courier New', 'Courier', 'monospace'],
                     },
                     colors: {
-                        // Dark Theme Colors
+                        // Dark Theme Colors (Hacker)
                         primary: '#00ff00',
                         secondary: '#008800',
                         bgDark: '#050505',
                         bgCard: '#0f0f0f',
                         accent: '#ff003c',
-                        // Light Theme Colors
+                        // Light Theme Colors (Enterprise)
                         lightBg: '#f8fafc',
                         lightCard: '#ffffff',
-                        lightPrimary: '#2563eb', // Trustworthy blue
-                        lightText: '#0f172a', // Deep slate
+                        lightPrimary: '#2563eb',
+                        lightText: '#0f172a',
                     }
                 }
             }
@@ -35,12 +35,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Smooth transition for theme switching */
         body {
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Custom Scrollbar for Terminal aesthetic (Only in Dark Mode) */
+        /* Dark Mode Specific Styles */
         .dark ::-webkit-scrollbar {
             width: 8px;
         }
@@ -190,17 +189,15 @@
                     class="space-y-3 text-gray-600 dark:text-gray-300 list-disc list-inside marker:text-lightPrimary dark:marker:text-primary transition-colors">
                     <li>Conducted proactive threat hunting operations, focusing on the identification and analysis of
                         <strong class="text-slate-900 dark:text-white dark:font-bold">Living off the Land Binaries
-                            (LOLBins)</strong>.
-                    </li>
+                            (LOLBins)</strong>.</li>
                     <li>Analyzed lateral movement techniques within complex network architectures using <strong
                             class="text-slate-900 dark:text-white dark:font-bold">Elasticsearch/Kibana XDR</strong>.
                     </li>
                     <li>Engineered and refined SOC Standard Operating Procedures (SOPs) and incident response playbooks.
                     </li>
                     <li>Developed internal automation tools using <strong
-                            class="text-slate-900 dark:text-white dark:font-bold">Python and
-                            Django</strong> to assist security analysts in bridging the gap between raw data and
-                        actionable intelligence.</li>
+                            class="text-slate-900 dark:text-white dark:font-bold">Python and Django</strong> to assist
+                        security analysts in bridging the gap between raw data and actionable intelligence.</li>
                 </ul>
             </div>
         </div>
@@ -211,8 +208,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white transition-colors"><span
                     class="hidden dark:inline text-primary">> </span>Deployed<span
-                    class="hidden dark:inline">_</span><span class="dark:hidden"> </span>Architecture
-            </h2>
+                    class="hidden dark:inline">_</span><span class="dark:hidden"> </span>Architecture</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div
@@ -223,9 +219,8 @@
                         <i class="fas fa-microchip text-lightPrimary dark:text-primary text-xl transition-colors"></i>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm transition-colors">Developed a standalone
-                        Large Language Model (LLM) designed
-                        specifically to assist SOC analysts. Streamlines log analysis and threat intelligence querying.
-                    </p>
+                        Large Language Model (LLM) designed specifically to assist SOC analysts. Streamlines log
+                        analysis and threat intelligence querying.</p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="bg-gray-100 text-gray-700 dark:bg-bgDark dark:text-primary px-2 py-1 rounded text-xs border border-gray-200 dark:border-secondary font-medium dark:font-normal transition-colors">LLM</span>
@@ -242,9 +237,8 @@
                         <i class="fas fa-database text-lightPrimary dark:text-primary text-xl transition-colors"></i>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm transition-colors">Engineered a custom
-                        Python script leveraging threading to
-                        efficiently extract and format EDR data directly from Elasticsearch Kibana into actionable
-                        reports.</p>
+                        Python script leveraging threading to efficiently extract and format EDR data directly from
+                        Elasticsearch Kibana into actionable reports.</p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="bg-gray-100 text-gray-700 dark:bg-bgDark dark:text-primary px-2 py-1 rounded text-xs border border-gray-200 dark:border-secondary font-medium dark:font-normal transition-colors">Python
@@ -262,9 +256,8 @@
                         <i class="fas fa-fingerprint text-lightPrimary dark:text-primary text-xl transition-colors"></i>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm transition-colors">Developed a biometric
-                        authentication system using finger vein
-                        patterns. Leveraged Raspberry Pi 5 hardware alongside machine learning for pattern recognition.
-                    </p>
+                        authentication system using finger vein patterns. Leveraged Raspberry Pi 5 hardware alongside
+                        machine learning for pattern recognition.</p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="bg-gray-100 text-gray-700 dark:bg-bgDark dark:text-primary px-2 py-1 rounded text-xs border border-gray-200 dark:border-secondary font-medium dark:font-normal transition-colors">Machine
@@ -283,8 +276,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white transition-colors"><span
                     class="hidden dark:inline text-primary">> </span>Leadership<span
-                    class="hidden dark:inline">_And_</span><span class="dark:hidden"> & </span>Outreach
-            </h2>
+                    class="hidden dark:inline">_And_</span><span class="dark:hidden"> & </span>Outreach</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="space-y-6">
@@ -299,8 +291,8 @@
                                     class="hidden dark:inline"> ]</span></span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm transition-colors">Initiated technical
-                            programs and workshops to integrate
-                            technology in education and empower youth digital literacy.</p>
+                            programs and workshops to integrate technology in education and empower youth digital
+                            literacy.</p>
                     </div>
                     <div
                         class="bg-lightCard border border-gray-200 dark:bg-bgCard p-6 rounded-lg dark:terminal-border dark:hover-terminal transition-all shadow-sm dark:shadow-none">
@@ -313,8 +305,7 @@
                                     ]</span></span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm transition-colors">Directed all aspects of
-                            event management for the KICT Festival
-                            2024, a large-scale university festival.</p>
+                            event management for the KICT Festival 2024, a large-scale university festival.</p>
                     </div>
                 </div>
 
@@ -330,8 +321,8 @@
                                     ]</span></span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm transition-colors">Participated in a regional
-                            workshop in Kuala Lumpur addressing
-                            cyber issues like misinformation, extremism, and cyberbullying in ASEAN.</p>
+                            workshop in Kuala Lumpur addressing cyber issues like misinformation, extremism, and
+                            cyberbullying in ASEAN.</p>
                     </div>
                     <div
                         class="bg-lightCard border border-gray-200 dark:bg-bgCard p-6 rounded-lg dark:terminal-border dark:hover-terminal transition-all shadow-sm dark:shadow-none">
@@ -343,8 +334,7 @@
                                     ]</span></span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm transition-colors">Delivered training modules
-                            on cryptography, OSINT, and Figma
-                            for secondary school students in Sabah.</p>
+                            on cryptography, OSINT, and Figma for secondary school students in Sabah.</p>
                     </div>
                 </div>
             </div>
@@ -355,7 +345,6 @@
         class="py-20 border-b border-gray-200 dark:border-secondary/30 bg-gray-50 dark:bg-bgCard transition-colors duration-300">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
                 <div>
                     <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white transition-colors"><span
                             class="hidden dark:inline text-primary">> </span>Credentials</h2>
@@ -400,14 +389,14 @@
                                 Technical Matrix</h4>
                             <div class="space-y-3 text-sm transition-colors">
                                 <p class="text-gray-600 dark:text-gray-400"><strong
-                                        class="text-slate-900 dark:text-white">Cyber:</strong> Threat
-                                    Hunting, Pentesting, SIEM (Elasticsearch/Kibana), Wireshark, Nmap.</p>
+                                        class="text-slate-900 dark:text-white">Cyber:</strong> Threat Hunting,
+                                    Pentesting, SIEM (Elasticsearch/Kibana), Wireshark, Nmap.</p>
                                 <p class="text-gray-600 dark:text-gray-400"><strong
-                                        class="text-slate-900 dark:text-white">Dev & Data:</strong> Python,
-                                    Django, C++, Pandas, Scikit-learn, Figma.</p>
+                                        class="text-slate-900 dark:text-white">Dev & Data:</strong> Python, Django, C++,
+                                    Pandas, Scikit-learn, Figma.</p>
                                 <p class="text-gray-600 dark:text-gray-400"><strong
-                                        class="text-slate-900 dark:text-white">Governance:</strong> Malaysia
-                                    Cyber Security Act 854.</p>
+                                        class="text-slate-900 dark:text-white">Governance:</strong> Malaysia Cyber
+                                    Security Act 854.</p>
                             </div>
                         </div>
                     </div>
@@ -416,15 +405,12 @@
                 <div>
                     <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white transition-colors"><span
                             class="hidden dark:inline text-primary">> </span>CTF<span
-                            class="hidden dark:inline">_</span><span class="dark:hidden"> </span>Deployments
-                    </h2>
+                            class="hidden dark:inline">_</span><span class="dark:hidden"> </span>Deployments</h2>
                     <div
                         class="bg-white border border-gray-200 dark:bg-bgDark p-6 rounded-lg dark:terminal-border shadow-sm dark:shadow-none h-full transition-colors">
                         <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm transition-colors">Active competitor in
-                            national and international
-                            challenges, demonstrating practical skills in digital forensics, exploitation, and defensive
-                            strategies.</p>
-
+                            national and international challenges, demonstrating practical skills in digital forensics,
+                            exploitation, and defensive strategies.</p>
                         <ul class="space-y-4 transition-colors">
                             <li
                                 class="flex items-center gap-3 text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-secondary/30 pb-2">
@@ -505,8 +491,8 @@
                 <div class="mt-4">
                     <p class="text-sm text-gray-500 transition-colors"><strong
                             class="text-slate-700 dark:text-primary dark:font-normal transition-colors">Key
-                            Coursework:</strong> Network Security
-                        & Cryptography, Digital Evidence Forensics, Intelligent Systems & Machine Learning.</p>
+                            Coursework:</strong> Network Security & Cryptography, Digital Evidence Forensics,
+                        Intelligent Systems & Machine Learning.</p>
                 </div>
             </div>
 
@@ -551,34 +537,7 @@
         </div>
     </footer>
 
-    <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-
-            if (htmlElement.classList.contains('dark')) {
-                themeIcon.classList.remove('fa-moon', 'text-gray-600');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon', 'text-gray-600');
-            }
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

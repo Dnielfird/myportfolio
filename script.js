@@ -1,22 +1,35 @@
-// Terminal Typing Effect Logic
-const textToType = "cat danniel_firdaus_cv.txt";
-const typingSpeed = 100; // milliseconds per character
-let i = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
 
-function typeWriter() {
-    if (i < textToType.length) {
-        document.getElementById("typewriter").innerHTML += textToType.charAt(i);
-        i++;
-        setTimeout(typeWriter, typingSpeed);
-    } else {
-        // Once typing is done, fade in the rest of the CV
-        setTimeout(() => {
-            document.getElementById("main-content").style.opacity = 1;
-        }, 500);
-    }
-}
+    // Toggle Theme Logic
+    themeToggleBtn.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
 
-// Start typing effect when page loads
-window.onload = () => {
-    setTimeout(typeWriter, 800);
-};
+        // Switch the icon based on the current mode
+        if (htmlElement.classList.contains('dark')) {
+            themeIcon.classList.remove('fa-moon', 'text-gray-600');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon', 'text-gray-600');
+        }
+    });
+
+    // Smooth Scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
