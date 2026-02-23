@@ -62,7 +62,12 @@
         /* Dark Mode Scrollbar & Terminal Effects */
         .dark ::-webkit-scrollbar {
             width: 6px;
-            md: width: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .dark ::-webkit-scrollbar {
+                width: 8px;
+            }
         }
 
         .dark ::-webkit-scrollbar-track {
